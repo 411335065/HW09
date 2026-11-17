@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>資料探勘期中重點整理（CH1 - CH2）｜Study Notes</title>
+  <meta name="description" content="資料探勘 CH1–CH2 期中重點：Big Data、KDD 流程、客觀與主觀評估標準、資料物件與屬性。">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar" id="sidebar" aria-label="全站導覽">
+      <a class="brand" href="../index.html">Study Notes 筆記整理庫</a>
+      <nav>
+        <!-- NAV:START（所有頁面此區塊內容必須一致，僅路徑前綴不同） -->
+        <div class="nav-group">
+          <p class="nav-subject">資料探勘 (Data Mining)</p>
+          <ul class="nav-list">
+            <li><a href="./dm-ch1-ch2.html">期中重點 CH1–CH2</a></li>
+            <li><a href="./dm-ch3.html">CH3 資料前處理</a></li>
+            <li><a href="./dm-ch6-ch8.html">CH6、CH8 關聯規則與學習</a></li>
+          </ul>
+        </div>
+        <!-- NAV:END -->
+      </nav>
+    </aside>
+    <div class="nav-overlay" id="nav-overlay"></div>
+
+    <div class="main">
+      <div class="topbar">
+        <button class="menu-toggle" id="menu-toggle" type="button" aria-label="開啟導覽選單" aria-controls="sidebar" aria-expanded="false"><span></span><span></span><span></span></button>
+        <span class="topbar-title">Study Notes</span>
+      </div>
+
+      <main class="container">
+        <header>
+          <p class="breadcrumb"><a href="../index.html">首頁</a> / 資料探勘 (Data Mining)</p>
+          <h1 class="page-title">資料探勘期中重點整理（CH1 - CH2）</h1>
+          <p class="page-meta"><span class="badge badge-tag">資料探勘 Data Mining</span> <span class="badge badge-tag">DM01–DM02</span></p>
+        </header>
+
+        <div class="search-box">
+          <label for="search-input" class="page-meta">搜尋本頁名詞</label>
+          <input class="search-input" id="search-input" type="search" placeholder="輸入關鍵字，例如：屬性、support" autocomplete="off">
+          <p class="search-status" id="search-status" aria-live="polite"></p>
+        </div>
+
+        <section class="note-section" id="dm01" data-search-group>
+          <h2 class="section-title">DM01 (CH1)</h2>
+          <div class="card-stack">
+          <article class="term-card" data-searchable>
+            <header class="term-head">
+              <span class="term-no">01</span>
+              <h3 class="term-title">Big Data</h3>
+            </header>
+            <div class="def def-en"><span class="def-label">English Definition</span><p lang="en">an all-encompassing term for any collection of data sets so large and complex that it becomes difficult to process using traditional data processing applications</p></div>
+            <div class="def def-zh"><span class="def-label">中文白話解釋</span><p>指資料量極其龐大且複雜，以至於難以使用傳統資料處理的資料集集合</p></div>
+          </article>
+          <article class="term-card" data-searchable>
+            <header class="term-head">
+              <span class="term-no">02</span>
+              <h3 class="term-title">Data Mining / KDD</h3>
+            </header>
+            <div class="def def-en"><span class="def-label">English Definition</span><p lang="en">The process of discovering interesting knowledge from large amounts of data stored in databases, data warehouses, or other information repositories</p></div>
+            <div class="def def-zh"><span class="def-label">中文白話解釋</span><p>從儲存在資料庫、資料倉儲或其他資訊儲存庫中的大量資料中，發現有用且有趣知識的過程</p></div>
+          </article>
+          <article class="term-card" data-searchable>
+            <header class="term-head">
+              <span class="term-no">03</span>
+              <h3 class="term-title">Data Selection</h3>
+              <span class="term-zh">資料選擇</span>
+            </header>
+            <div class="def def-zh"><span class="def-label">中文白話解釋</span><p>原始資料庫或資料集中，根據分析目標篩選出與任務相關的子集</p></div>
+          </article>
+          <article class="term-card" data-searchable>
+            <header class="term-head">
+              <span class="term-no">04</span>
+              <h3 class="term-title">Data Transformation</h3>
+              <span class="term-zh">資料轉換</span>
+            </header>
+            <div class="def def-zh"><span class="def-label">中文白話解釋</span><p>將選定的資料透過維度縮減、特徵提取或格式整理，轉化為適合進行資料探勘演算法處理的形式</p></div>
+          </article>
+          <article class="term-card" data-searchable>
+            <header class="term-head">
+              <span class="term-no">05</span>
+              <h3 class="term-title">Pattern Evaluation</h3>
+              <span class="term-zh">模式評估</span>
+            </header>
+            <div class="def def-zh"><span class="def-label">中文白話解釋</span><p>利用特定的評估指標與標準，從探勘出來的各種模式中識別並篩選出真正有趣且實用的知識</p></div>
+          </article>
+          <article class="term-card" data-searchable>
+            <header class="term-head">
+              <span class="term-no">06</span>
+              <h3 class="term-title">Knowledge Presentation</h3>
+              <span class="term-zh">知識呈現</span>
+            </header>
+            <div class="def def-zh"><span class="def-label">中文白話解釋</span><p>運用圖表或視覺化等技術，將最終挖掘出來的知識以易於理解的方式展現給使用者</p></div>
+          </article>
+          <article class="term-card" data-searchable>
+            <header class="term-head">
+              <span class="term-no">07</span>
+              <h3 class="term-title">Objective</h3>
+              <span class="term-zh">客觀標準</span>
+            </header>
+            <div class="def def-en"><span class="def-label">English Definition</span><p lang="en">based on statistics and structures of patterns</p></div>
+            <div class="def def-zh"><span class="def-label">中文白話解釋</span><p>基於模式的統計數據與結構</p></div>
+            <p class="example"><span class="badge">例</span><span class="badge badge-example">support</span><span class="badge badge-example">confidence</span></p>
+          </article>
+          <article class="term-card" data-searchable>
+            <header class="term-head">
+              <span class="term-no">08</span>
+              <h3 class="term-title">Subjective</h3>
+              <span class="term-zh">主觀標準</span>
+            </header>
+            <div class="def def-en"><span class="def-label">English Definition</span><p lang="en">based on user’s belief in the data</p></div>
+            <div class="def def-zh"><span class="def-label">中文白話解釋</span><p>基於使用者對資料的信念與認知</p></div>
+            <p class="example"><span class="badge">例</span><span class="badge badge-example">unexpectedness 意料之外性</span><span class="badge badge-example">novelty 新穎性</span><span class="badge badge-example">actionability 實用性</span></p>
+          </article>
+          </div>
+        </section>
+
+        <section class="note-section" id="dm02" data-search-group>
+          <h2 class="section-title">DM02 (CH2)</h2>
+          <div class="card-stack">
+          <article class="term-card" data-searchable>
+            <header class="term-head">
+              <span class="term-no">01</span>
+              <h3 class="term-title">Data Object</h3>
+              <span class="term-zh">資料物件</span>
+            </header>
+            <div class="def def-en"><span class="def-label">English Definition</span><p lang="en">A data object represents an entity. Data sets are made up of data objects</p></div>
+            <div class="def def-zh"><span class="def-label">中文白話解釋</span><p>資料物件代表一個實體，而資料集由資料物件組成</p></div>
+          </article>
+          <article class="term-card" data-searchable>
+            <header class="term-head">
+              <span class="term-no">02</span>
+              <h3 class="term-title">Attribute</h3>
+              <span class="term-zh">屬性</span>
+            </header>
+            <div class="def def-en"><span class="def-label">English Definition</span><p lang="en">a data field, representing a characteristic or feature of a data object</p></div>
+            <div class="def def-zh"><span class="def-label">中文白話解釋</span><p>代表資料物件的特徵或特色</p></div>
+          </article>
+          <article class="term-card" data-searchable>
+            <header class="term-head">
+              <span class="term-no">03</span>
+              <h3 class="term-title">Discrete Attribute</h3>
+              <span class="term-zh">離散屬性</span>
+            </header>
+            <div class="def def-en"><span class="def-label">English Definition</span><p lang="en">Has only a finite or countably infinite set of values</p></div>
+            <div class="def def-zh"><span class="def-label">中文白話解釋</span><p>只有有限或可數無限的值集合。二元屬性是離散屬性的特例</p></div>
+            <p class="example"><span class="badge">例</span><span class="badge badge-example">郵遞區號</span><span class="badge badge-example">職業</span></p>
+          </article>
+          <article class="term-card" data-searchable>
+            <header class="term-head">
+              <span class="term-no">04</span>
+              <h3 class="term-title">Continuous Attribute</h3>
+              <span class="term-zh">連續屬性</span>
+            </header>
+            <div class="def def-en"><span class="def-label">English Definition</span><p lang="en">Has real numbers as attribute values. Continuous attributes are typically represented as floating-point variables</p></div>
+            <div class="def def-zh"><span class="def-label">中文白話解釋</span><p>屬性值為實數，通常以浮點變數表示</p></div>
+            <p class="example"><span class="badge">例</span><span class="badge badge-example">0.313</span><span class="badge badge-example">25.341</span></p>
+          </article>
+          <article class="term-card" data-searchable>
+            <header class="term-head">
+              <span class="term-no">05</span>
+              <h3 class="term-title">Redundant Attribute</h3>
+              <span class="term-zh">冗餘屬性</span>
+            </header>
+            <div class="def def-zh"><span class="def-label">中文白話解釋</span><p>重複、多餘或可被其他屬性替代／推導出的特徵或欄位</p></div>
+          </article>
+          <article class="term-card" data-searchable>
+            <header class="term-head">
+              <span class="term-no">06</span>
+              <h3 class="term-title">Data Visualization</h3>
+              <span class="term-zh">資料視覺化</span>
+            </header>
+            <div class="def def-zh"><span class="def-label">中文白話解釋</span><p>透過圖形化元件將資料進行映射，藉此呈現數據資訊的技術</p></div>
+          </article>
+          </div>
+        </section>
+
+        <section class="note-section" id="dm01-qa" data-search-group>
+          <h2 class="section-title">DM01 (CH1) 問答</h2>
+          <div class="card-stack">
+          <article class="term-card" data-searchable>
+            <header class="term-head">
+              <span class="term-no">01</span>
+              <h3 class="term-title">3V of Big Data</h3>
+            </header>
+            <div class="term-after"><ul class="note-list"><li><strong>Volume 資料量</strong><span class="li-line" lang="en">amount of data</span><span class="li-line">資料的規模與總量</span></li><li><strong>Velocity 速度</strong><span class="li-line" lang="en">speed of data in and out</span><span class="li-line">資料輸入與輸出的處理速度</span></li><li><strong>Variety 多樣性</strong><span class="li-line" lang="en">range of data types and sources</span><span class="li-line">資料型態與來源的廣泛範圍，包含結構化、半結構化與非結構化資料</span></li><li><strong>Veracity</strong><span class="li-line">資料的準確度、可靠性與品質</span></li><li><strong>Value</strong><span class="li-line">資料探勘有無實質效益的價值</span></li></ul></div>
+          </article>
+          <article class="term-card" data-searchable>
+            <header class="term-head">
+              <span class="term-no">02</span>
+              <h3 class="term-title">這張表一定很重要</h3>
+              <span class="term-zh">知識發現的層級金字塔</span>
+            </header>
+            <div class="term-after"><p>原稿為一張金字塔圖，縱軸為 <span lang="en">Increasing potential to support business decisions</span>。由下而上：</p><ol class="note-list"><li><strong lang="en">Data Sources</strong><span class="li-line" lang="en">Paper, Files, Web documents, Scientific experiments, Database Systems</span></li><li><strong lang="en">Data Preprocessing/Integration, Data Warehouses</strong></li><li><strong lang="en">Data Exploration</strong><span class="li-line" lang="en">Statistical Summary, Querying, and Reporting</span></li><li><strong lang="en">Data Mining</strong><span class="li-line" lang="en">Information Discovery</span></li><li><strong lang="en">Data Presentation</strong><span class="li-line" lang="en">Visualization Techniques</span></li><li><strong lang="en">Decision Making</strong></li></ol><p>圖右側的使用者角色由下而上為：DBA、Data Analyst、Business Analyst、End User。</p></div>
+          </article>
+          <article class="term-card" data-searchable>
+            <header class="term-head">
+              <span class="term-no">03</span>
+              <h3 class="term-title">Data mining on what kind of data?</h3>
+              <span class="term-zh">資料探勘可處理的資料類型</span>
+            </header>
+            <div class="term-after"><ul class="note-list"><li><strong>Relational databases</strong><span class="li-line">關聯式資料庫</span></li><li><strong>Data warehouses</strong><span class="li-line">資料倉儲</span></li><li><strong>Transactional databases</strong><span class="li-line">交易式資料庫</span></li></ul><p class="example"><span class="badge badge-tag">原稿以灰字標示</span></p><ul class="note-list"><li><strong>Object-oriented and object-relational databases</strong><span class="li-line">物件導向與物件關聯式資料庫</span></li><li><strong>Spatial and temporal data</strong><span class="li-line">空間與時間資料</span></li><li><strong>Time-series data and stream data</strong><span class="li-line">時間序列資料與串流資料</span></li><li><strong>Text databases and multimedia databases</strong><span class="li-line">文字資料庫與多媒體資料庫</span></li><li><strong>Heterogeneous and legacy databases</strong><span class="li-line">異質與舊版資料庫</span></li><li><strong>WWW</strong><span class="li-line">全球資訊網</span></li></ul></div>
+          </article>
+          <article class="term-card" data-searchable>
+            <header class="term-head">
+              <span class="term-no">04</span>
+              <h3 class="term-title">Data Mining Functionality</h3>
+              <span class="term-zh">功能</span>
+            </header>
+            <div class="term-after"><ul class="note-list"><li><strong>Concept description 概念描述</strong><span class="li-line" lang="en">Characterization and discrimination</span><span class="li-line">特徵化與區別</span></li><li><strong>Association (correlation and causality)</strong><span class="li-line">關聯性與因果關係</span></li><li><strong>Classification and Prediction</strong><span class="li-line">分類與預測</span></li><li><strong>Cluster analysis</strong><span class="li-line">分群分析</span></li><li><strong>Outlier analysis</strong><span class="li-line">異常值分析</span></li><li><strong>Trend and evolution analysis</strong><span class="li-line">趨勢與演化分析</span></li></ul></div>
+          </article>
+          <article class="term-card" data-searchable>
+            <header class="term-head">
+              <span class="term-no">05</span>
+              <h3 class="term-title">Pattern Interestingness Measure</h3>
+              <span class="term-zh">模式有趣度衡量標準</span>
+            </header>
+            <div class="term-after"><ul class="note-list"><li><strong>Simplicity</strong><span class="li-line">簡單性</span></li><li><strong>Certainty</strong><span class="li-line">確定性</span></li><li><strong>Utility</strong><span class="li-line">實用性</span></li><li><strong>Novelty</strong><span class="li-line">新穎性</span></li></ul></div>
+          </article>
+          </div>
+        </section>
+
+        <section class="note-section" id="dm02-qa" data-search-group>
+          <h2 class="section-title">DM02 (CH2) 問答</h2>
+          <div class="card-stack">
+          <article class="term-card" data-searchable>
+            <header class="term-head">
+              <span class="term-no">01</span>
+              <h3 class="term-title">Why Data Visualization?</h3>
+              <span class="term-zh">為什麼需要資料視覺化</span>
+            </header>
+            <div class="term-after"><ul class="note-list"><li><strong>Gain insight</strong><span class="li-line" lang="en">into an information space by mapping data onto graphical primitives</span><span class="li-line">透過將資料映射到圖形基元（點、線、形狀、顏色）上，深入了解資訊空間</span></li><li><strong>Provide qualitative overview</strong><span class="li-line" lang="en">of large data sets</span><span class="li-line">為龐大的資料集提供整體且直觀的質性敘述</span></li><li><strong>Search</strong><span class="li-line" lang="en">for patterns, trends, structure, irregularities, relationships among data</span><span class="li-line">助於搜尋資料之間的模式（Patterns）、趨勢（Trends）、結構（Structure）、不規則性（Irregularities）之間的關聯性</span></li><li><strong>Help find interesting regions and suitable parameters</strong><span class="li-line" lang="en">for further quantitative analysis</span><span class="li-line">協助找出感興趣的資料區域與合適的參數，進行進一步的定量分析</span></li><li><strong>Provide a visual proof</strong><span class="li-line" lang="en">of computer representations derived</span><span class="li-line">為電腦運算推導出的數據表示結果提供直觀的視覺化證明</span></li></ul></div>
+          </article>
+          <article class="term-card" data-searchable>
+            <header class="term-head">
+              <span class="term-no">02</span>
+              <h3 class="term-title">Attribute Types</h3>
+              <span class="term-zh">屬性類型</span>
+            </header>
+            <div class="term-after"><ul class="note-list"><li><strong>Nominal</strong><span class="li-line">類別、狀態或事物名稱</span><ul class="note-list"><li><strong>例：髮色、婚姻狀況、職業、身分證字號</strong></li></ul></li><li><strong>Binary (0 or 1)</strong><span class="li-line">名義屬性，僅有兩個狀態</span><ul class="note-list"><li><strong>Symmetric 對稱</strong><span class="li-line">兩種結果同等重要。例：性別</span></li><li><strong>Asymmetric 非對稱</strong><span class="li-line">結果重要性不一樣，通常將 1 視為最重要或主要的結果。例：醫療檢測結果</span></li></ul></li><li><strong>Ordinal</strong><span class="li-line">數值具有具意義的順序，但相鄰數值之間的差距大小是未知的。例：尺碼</span></li><li><strong>Numeric 整數或實數</strong><ul class="note-list"><li><strong>Interval</strong><span class="li-line">等距，沒有絕對零點。例：攝氏、華氏溫度、日曆日期</span></li><li><strong>Ratio</strong><span class="li-line">有絕對零點，非負值。例：長度、貨幣金額</span></li></ul></li></ul></div>
+          </article>
+          </div>
+        </section>
+
+        <p class="no-results" id="no-results" hidden>沒有符合的名詞，請試試其他關鍵字。</p>
+      </main>
+    </div>
+  </div>
+  <script src="../assets/app.js"></script>
+</body>
+</html>

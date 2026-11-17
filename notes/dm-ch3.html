@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>資料探勘 CH3 資料前處理｜Study Notes</title>
+  <meta name="description" content="資料探勘 CH3：資料不完整、雜訊、不一致、資料整合、資料縮減與正規化。">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar" id="sidebar" aria-label="全站導覽">
+      <a class="brand" href="../index.html">Study Notes 筆記整理庫</a>
+      <nav>
+        <!-- NAV:START（所有頁面此區塊內容必須一致，僅路徑前綴不同） -->
+        <div class="nav-group">
+          <p class="nav-subject">資料探勘 (Data Mining)</p>
+          <ul class="nav-list">
+            <li><a href="./dm-ch1-ch2.html">期中重點 CH1–CH2</a></li>
+            <li><a href="./dm-ch3.html">CH3 資料前處理</a></li>
+            <li><a href="./dm-ch6-ch8.html">CH6、CH8 關聯規則與學習</a></li>
+          </ul>
+        </div>
+        <!-- NAV:END -->
+      </nav>
+    </aside>
+    <div class="nav-overlay" id="nav-overlay"></div>
+
+    <div class="main">
+      <div class="topbar">
+        <button class="menu-toggle" id="menu-toggle" type="button" aria-label="開啟導覽選單" aria-controls="sidebar" aria-expanded="false"><span></span><span></span><span></span></button>
+        <span class="topbar-title">Study Notes</span>
+      </div>
+
+      <main class="container">
+        <header>
+          <p class="breadcrumb"><a href="../index.html">首頁</a> / 資料探勘 (Data Mining)</p>
+          <h1 class="page-title">資料探勘 DM03（CH3）資料前處理</h1>
+          <p class="page-meta"><span class="badge badge-tag">資料探勘 Data Mining</span> <span class="badge badge-tag">DM03</span></p>
+        </header>
+
+        <div class="search-box">
+          <label for="search-input" class="page-meta">搜尋本頁名詞</label>
+          <input class="search-input" id="search-input" type="search" placeholder="輸入關鍵字" autocomplete="off">
+          <p class="search-status" id="search-status" aria-live="polite"></p>
+        </div>
+
+        <section class="note-section" id="dm03" data-search-group>
+          <h2 class="section-title">DM03 (CH3)</h2>
+          <div class="card-stack">
+          <article class="term-card" data-searchable>
+            <header class="term-head">
+              <span class="term-no">01</span>
+              <h3 class="term-title">incomplete</h3>
+              <span class="term-zh">不完整</span>
+            </header>
+            <div class="def def-en"><span class="def-label">English Definition</span><p lang="en">lacking attribute values, lacking certain attributes of interest, or containing only aggregate data</p></div>
+            <div class="def def-zh"><span class="def-label">中文白話解釋</span><p>缺少屬性值、缺少某些感興趣的屬性，或僅包含彙集過的資料（總和、平均數）</p></div>
+          </article>
+          <article class="term-card" data-searchable>
+            <header class="term-head">
+              <span class="term-no">02</span>
+              <h3 class="term-title">noisy</h3>
+              <span class="term-zh">雜訊</span>
+            </header>
+            <div class="def def-en"><span class="def-label">English Definition</span><p lang="en">containing errors or outliers</p></div>
+            <div class="def def-zh"><span class="def-label">中文白話解釋</span><p>包含錯值或離群值</p></div>
+          </article>
+          <article class="term-card" data-searchable>
+            <header class="term-head">
+              <span class="term-no">03</span>
+              <h3 class="term-title">inconsistent</h3>
+              <span class="term-zh">不一致</span>
+            </header>
+            <div class="def def-en"><span class="def-label">English Definition</span><p lang="en">containing discrepancies in codes or names</p></div>
+            <div class="def def-zh"><span class="def-label">中文白話解釋</span><p>代碼或名稱不一致</p></div>
+          </article>
+          <article class="term-card" data-searchable>
+            <header class="term-head">
+              <span class="term-no">04</span>
+              <h3 class="term-title">Data Dirty</h3>
+            </header>
+            <div class="def def-zh"><span class="def-label">中文白話解釋</span><p>不符合分析標準、品質不佳或包含錯誤的原始資料，擁有 Incomplete Data、Noisy Data、Inconsistent Data 這三種資料。</p></div>
+          </article>
+          <article class="term-card" data-searchable>
+            <header class="term-head">
+              <span class="term-no">05</span>
+              <h3 class="term-title">Data Cleaning</h3>
+            </header>
+            <div class="def def-zh"><span class="def-label">中文白話解釋</span><p>將 missing value 填補、Identify outlier and smooth out Noisy data、修正不一致的資料、解決 data integration 造成的 Redundancy 的工作或執行程序</p></div>
+          </article>
+          <article class="term-card" data-searchable>
+            <header class="term-head">
+              <span class="term-no">06</span>
+              <h3 class="term-title">Missing Values</h3>
+            </header>
+            <div class="def def-zh"><span class="def-label">中文白話解釋</span><p>資料集中的某些數值無法取得或未被記錄的情況</p></div>
+          </article>
+          <article class="term-card" data-searchable>
+            <header class="term-head">
+              <span class="term-no">07</span>
+              <h3 class="term-title">Noisy Data</h3>
+            </header>
+            <div class="def def-en"><span class="def-label">English Definition</span><p lang="en">random error or variance in a measured variable</p></div>
+            <div class="def def-zh"><span class="def-label">中文白話解釋</span><p>測量變數中的隨機錯誤或方差</p></div>
+          </article>
+          <article class="term-card" data-searchable>
+            <header class="term-head">
+              <span class="term-no">08</span>
+              <h3 class="term-title">Data Integration</h3>
+              <span class="term-zh">資料整合</span>
+            </header>
+            <div class="def def-en"><span class="def-label">English Definition</span><p lang="en">Combines data from multiple sources into a coherent store</p></div>
+            <div class="def def-zh"><span class="def-label">中文白話解釋</span><p>將多個來源的資料整合合成一個連貫的儲存庫</p></div>
+          </article>
+          <article class="term-card" data-searchable>
+            <header class="term-head">
+              <span class="term-no">09</span>
+              <h3 class="term-title">Entity Identification Problem</h3>
+              <span class="term-zh">實體識別問題</span>
+            </header>
+            <div class="def def-en"><span class="def-label">English Definition</span><p lang="en">Identify real world entities from multiple data sources</p></div>
+            <div class="def def-zh"><span class="def-label">中文白話解釋</span><p>從多個資料來源中辨識真實世界的實體，例如不同名字卻是稱呼同一個人</p></div>
+          </article>
+          <article class="term-card" data-searchable>
+            <header class="term-head">
+              <span class="term-no">10</span>
+              <h3 class="term-title">Object Identification</h3>
+              <span class="term-zh">物件識別</span>
+            </header>
+            <div class="def def-en"><span class="def-label">English Definition</span><p lang="en">The same attribute or object may have different names in different databases</p></div>
+            <div class="def def-zh"><span class="def-label">中文白話解釋</span><p>同一屬性或物件在不同資料庫中可能有不同名稱</p></div>
+          </article>
+          <article class="term-card" data-searchable>
+            <header class="term-head">
+              <span class="term-no">11</span>
+              <h3 class="term-title">Derivable Data</h3>
+              <span class="term-zh">可推導資料</span>
+            </header>
+            <div class="def def-en"><span class="def-label">English Definition</span><p lang="en">One attribute may be a “derived” attribute in another table</p></div>
+            <div class="def def-zh"><span class="def-label">中文白話解釋</span><p>某個屬性的數值可以透過其他表格計算／推導出來</p></div>
+            <p class="example"><span class="badge">例</span><span class="badge badge-example">annual revenue</span></p>
+          </article>
+          <article class="term-card" data-searchable>
+            <header class="term-head">
+              <span class="term-no">12</span>
+              <h3 class="term-title">Dimensionality Reduction</h3>
+              <span class="term-zh">降維縮減</span>
+            </header>
+            <div class="def def-zh"><span class="def-label">中文白話解釋</span><p>移除不重要的屬性（remove unimportant attributes）</p></div>
+            <div class="term-after"><ul class="note-list"><li><strong>Wavelet transforms</strong><span class="li-line">小波轉換</span></li><li><strong>Principal Components Analysis (PCA)</strong></li><li><strong>Feature subset selection, feature creation</strong></li></ul></div>
+          </article>
+          <article class="term-card" data-searchable>
+            <header class="term-head">
+              <span class="term-no">13</span>
+              <h3 class="term-title">Numerosity Reduction (Data Reduction)</h3>
+              <span class="term-zh">數量縮減</span>
+            </header>
+            <div class="term-after"><ul class="note-list"><li><strong>Regression and Log-Linear Models</strong><span class="li-line">迴歸與對數線性模型</span></li><li><strong>Histograms, clustering, sampling</strong><span class="li-line">直方圖、叢集、抽樣</span></li><li><strong>Data cube aggregation</strong><span class="li-line">資料立方體聚合</span></li></ul></div>
+          </article>
+          <article class="term-card" data-searchable>
+            <header class="term-head">
+              <span class="term-no">14</span>
+              <h3 class="term-title">Data Compression</h3>
+              <span class="term-zh">資料壓縮</span>
+            </header>
+            <div class="def def-zh"><span class="def-label">中文白話解釋</span><p>透過特定的演算法，在保留重要資訊的前提下，減少資料所需的儲存空間或傳輸體積</p></div>
+          </article>
+          <article class="term-card" data-searchable>
+            <header class="term-head">
+              <span class="term-no">15</span>
+              <h3 class="term-title">Linear Regression</h3>
+            </header>
+            <div class="def def-en"><span class="def-label">English Definition</span><p lang="en">Data are modeled to fit a straight line</p></div>
+            <div class="def def-zh"><span class="def-label">中文白話解釋</span><p>資料被模型以整合成一條直線</p></div>
+          </article>
+          <article class="term-card" data-searchable>
+            <header class="term-head">
+              <span class="term-no">16</span>
+              <h3 class="term-title">Multiple Regression</h3>
+            </header>
+            <div class="def def-en"><span class="def-label">English Definition</span><p lang="en">allows a response variable Y to be modeled as a linear function of multidimensional feature vector</p></div>
+            <div class="def def-zh"><span class="def-label">中文白話解釋</span><p>允許將反應變數 Y 建立模型，表現為多維特徵向量的線性函數</p></div>
+          </article>
+          <article class="term-card" data-searchable>
+            <header class="term-head">
+              <span class="term-no">17</span>
+              <h3 class="term-title">Log-linear Model</h3>
+            </header>
+            <div class="def def-en"><span class="def-label">English Definition</span><p lang="en">approximates discrete multidimensional probability distributions</p></div>
+            <div class="def def-zh"><span class="def-label">中文白話解釋</span><p>近似離散的多維機率分布</p></div>
+          </article>
+          <article class="term-card" data-searchable>
+            <header class="term-head">
+              <span class="term-no">18</span>
+              <h3 class="term-title">Clustering</h3>
+              <span class="term-zh">分群</span>
+            </header>
+            <div class="def def-zh"><span class="def-label">中文白話解釋</span><p>每一群找出中心點在哪裡，中心點也就是留下來的資料</p></div>
+          </article>
+          <article class="term-card" data-searchable>
+            <header class="term-head">
+              <span class="term-no">19</span>
+              <h3 class="term-title">Sampling</h3>
+              <span class="term-zh">抽樣</span>
+            </header>
+            <div class="def def-en"><span class="def-label">English Definition</span><p lang="en">obtaining a small sample s to represent the whole data set N</p></div>
+            <div class="def def-zh"><span class="def-label">中文白話解釋</span><p>取得一個小樣本 s 來表示整個資料集 N</p></div>
+          </article>
+          <article class="term-card" data-searchable>
+            <header class="term-head">
+              <span class="term-no">20</span>
+              <h3 class="term-title">Stratified Sampling</h3>
+              <span class="term-zh">分層抽樣</span>
+            </header>
+            <div class="def def-zh"><span class="def-label">中文白話解釋</span><p>將資料庫根據某個特徵切成互不相交的子群，在每個子群內獨立隨機抽樣</p></div>
+          </article>
+          <article class="term-card" data-searchable>
+            <header class="term-head">
+              <span class="term-no">21</span>
+              <h3 class="term-title">Attribute Subset Selection</h3>
+              <span class="term-zh">屬性子集選擇 / 特徵選擇</span>
+            </header>
+            <div class="def def-en"><span class="def-label">English Definition</span><p lang="en">Select a minimum set of features such that the probability distribution of different classes given the values for those features is as close as possible to the original distribution given the values of all features</p></div>
+            <div class="def def-zh"><span class="def-label">中文白話解釋</span><p>只挑出重要的屬性，並同時讓這些特徵值的機率分布接近原始資料的分佈</p></div>
+          </article>
+          <article class="term-card" data-searchable>
+            <header class="term-head">
+              <span class="term-no">22</span>
+              <h3 class="term-title">Concept Hierarchy</h3>
+              <span class="term-zh">概念階層</span>
+            </header>
+            <div class="def def-zh"><span class="def-label">中文白話解釋</span><p>將資料屬性值依抽象程度由低到高進行分層管理的結構，方便進行向上捲升或向下鑽取</p></div>
+          </article>
+          <article class="term-card" data-searchable>
+            <header class="term-head">
+              <span class="term-no">23</span>
+              <h3 class="term-title">Data Reduction</h3>
+              <span class="term-zh">資料縮減</span>
+            </header>
+            <div class="def def-en"><span class="def-label">English Definition</span><p lang="en">Obtain a reduced representation of the data set that is much smaller in volume but yet produces the same (or almost the same) analytical results</p></div>
+            <div class="def def-zh"><span class="def-label">中文白話解釋</span><p>將資料集縮減，其資料量遠小於原始資料，但可產生幾乎相同的分析結果</p></div>
+          </article>
+          </div>
+        </section>
+        <section class="note-section" id="dm03-qa" data-search-group>
+          <h2 class="section-title">DM03 (CH3) 問答</h2>
+          <div class="card-stack">
+          <article class="term-card" data-searchable>
+            <header class="term-head">
+              <span class="term-no">01</span>
+              <h3 class="term-title">Major Tasks in Data Preprocessing</h3>
+            </header>
+            <div class="term-after"><ul class="note-list"><li><strong>Data cleaning</strong><span class="li-line" lang="en">Fill in missing values, smooth noisy data, identify or remove outliers, and resolve inconsistencies.</span></li><li><strong>Data integration</strong><span class="li-line" lang="en">Integration of multiple databases, data cubes, or files.</span></li><li><strong>Data transformation</strong><span class="li-line" lang="en">Normalization and aggregation.</span></li><li><strong>Data reduction</strong><span class="li-line" lang="en">Obtains reduced representation in volume but produces the same or similar analytical results.</span></li><li><strong>Data discretization</strong><span class="li-line" lang="en">Part of data reduction but with particular importance, especially for numerical data.</span></li></ul></div>
+          </article>
+          <article class="term-card" data-searchable>
+            <header class="term-head">
+              <span class="term-no">02</span>
+              <h3 class="term-title">Data Cleaning Tasks</h3>
+              <span class="term-zh">資料清理任務</span>
+            </header>
+            <div class="term-after"><ul class="note-list"><li><strong>Fill in missing values</strong><span class="li-line">填補缺失值</span></li><li><strong>Identify outliers and smooth out noisy data</strong><span class="li-line">識別異常值並平滑化雜訊資料</span></li><li><strong>Correct inconsistent data</strong><span class="li-line">修正不一致的資料</span></li><li><strong>Resolve redundancy caused by data integration</strong><span class="li-line">解決因資料整合所造成的冗餘問題</span></li></ul></div>
+          </article>
+          <article class="term-card" data-searchable>
+            <header class="term-head">
+              <span class="term-no">03</span>
+              <h3 class="term-title">Missing Values 的解決方法</h3>
+            </header>
+            <div class="term-after"><ul class="note-list"><li><strong>Ignore the tuple 忽略該筆資料</strong><span class="li-line">通常用於分類任務中缺失類別標籤（Class label）時；但若各屬性的缺失比例差異極大，此方法效果較差</span></li><li><strong>Fill in the missing value manually 人工填補</strong><span class="li-line">過程繁瑣且通常不可行</span></li><li><strong>Fill in it automatically 自動填補</strong><span class="li-line">最有可能的方式：基於推理的模型（如貝氏公式或決策樹）進行預測填補</span></li></ul></div>
+          </article>
+          <article class="term-card" data-searchable>
+            <header class="term-head">
+              <span class="term-no">04</span>
+              <h3 class="term-title">Noise 的處理方法</h3>
+            </header>
+            <div class="term-after"><ul class="note-list"><li><strong>Binning</strong><span class="li-line" lang="en">first sort data and partition into (equal-frequency) bins, then one can smooth by bin means, smooth by bin median, smooth by bin boundaries, etc</span><span class="li-line">先將資料排序並分割為等頻率的 Bins，再透過 Bin means（箱平均值）、Bin median（箱中位數）或 Bin boundaries（箱邊界值）進行平滑化</span></li><li><strong>Regression</strong><span class="li-line" lang="en">smooth by fitting the data into regression functions</span><span class="li-line">將資料擬合至迴歸函數中以進行平滑化</span></li><li><strong>Clustering</strong><span class="li-line" lang="en">detect and remove outliers</span><span class="li-line">偵測並移除異常值</span></li><li><strong>Combined computer and human inspection</strong><span class="li-line" lang="en">detect suspicious values and check by human (e.g., deal with possible outliers)</span><span class="li-line">由電腦偵測可疑數值，再由人工進行檢查與處理</span></li></ul></div>
+          </article>
+          <article class="term-card" data-searchable>
+            <header class="term-head">
+              <span class="term-no">05</span>
+              <h3 class="term-title">Haar Wavelet Transform</h3>
+            </header>
+            <div class="term-after"><p>首先鄰近的值兩兩相加，再相減，最後全部除以根號 2，便獲得一個資料表，與原始資料有相同的趨勢，適用於圖像。</p></div>
+          </article>
+          <article class="term-card" data-searchable>
+            <header class="term-head">
+              <span class="term-no">06</span>
+              <h3 class="term-title">Principal Component Analysis</h3>
+            </header>
+            <div class="term-after"><p>假設每筆都有兩個屬性，試著找出一個新的座標體系（讓其中一個屬性值相同）。能夠解釋當中若干的座標軸上，轉換後只剩下一個屬性的差異，就能找出分佈的差異。</p><p><span class="badge">重點</span> 但是降維後的屬性已經不是原來的屬性了！！</p></div>
+          </article>
+          <article class="term-card" data-searchable>
+            <header class="term-head">
+              <span class="term-no">07</span>
+              <h3 class="term-title">Heuristic Methods</h3>
+              <span class="term-zh">啟發式方法</span>
+            </header>
+            <div class="term-after"><ul class="note-list"><li><strong>Step-wise forward selection</strong><span class="li-line">從很少的特徵開始，一個一個加進來</span></li><li><strong>Step-wise backward elimination</strong><span class="li-line">從全部特徵開始，一個一個刪掉</span></li><li><strong>Combining forward selection and backward elimination</strong><span class="li-line">加、刪兩種方式交替使用</span></li><li><strong>Decision-tree induction</strong><span class="li-line">透過建立決策樹來找出重要特徵與分類規則</span></li></ul></div>
+          </article>
+          <article class="term-card" data-searchable>
+            <header class="term-head">
+              <span class="term-no">08</span>
+              <h3 class="term-title">Normalization</h3>
+              <span class="term-zh">正規化</span>
+            </header>
+            <div class="term-after"><ul class="note-list"><li><strong>min-max normalization 最小-最大正規化</strong><span class="li-line">把資料縮放到指定範圍，最常見是 0～1</span></li><li><strong>z-score normalization</strong><span class="li-line">看一筆資料離平均值有幾個標準差</span></li><li><strong>normalization by decimal scaling</strong><span class="li-line">透過移動小數點來縮放資料</span></li></ul></div>
+          </article>
+          </div>
+        </section>
+
+        <p class="no-results" id="no-results" hidden>沒有符合的名詞，請試試其他關鍵字。</p>
+      </main>
+    </div>
+  </div>
+  <script src="../assets/app.js"></script>
+</body>
+</html>

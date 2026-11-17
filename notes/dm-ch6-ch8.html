@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>資料探勘 CH6、CH8 關聯規則與學習｜Study Notes</title>
+  <meta name="description" content="資料探勘 CH6 頻繁模式、關聯規則，與 CH8 監督式、非監督式學習。">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar" id="sidebar" aria-label="全站導覽">
+      <a class="brand" href="../index.html">Study Notes 筆記整理庫</a>
+      <nav>
+        <!-- NAV:START（所有頁面此區塊內容必須一致，僅路徑前綴不同） -->
+        <div class="nav-group">
+          <p class="nav-subject">資料探勘 (Data Mining)</p>
+          <ul class="nav-list">
+            <li><a href="./dm-ch1-ch2.html">期中重點 CH1–CH2</a></li>
+            <li><a href="./dm-ch3.html">CH3 資料前處理</a></li>
+            <li><a href="./dm-ch6-ch8.html">CH6、CH8 關聯規則與學習</a></li>
+          </ul>
+        </div>
+        <!-- NAV:END -->
+      </nav>
+    </aside>
+    <div class="nav-overlay" id="nav-overlay"></div>
+
+    <div class="main">
+      <div class="topbar">
+        <button class="menu-toggle" id="menu-toggle" type="button" aria-label="開啟導覽選單" aria-controls="sidebar" aria-expanded="false"><span></span><span></span><span></span></button>
+        <span class="topbar-title">Study Notes</span>
+      </div>
+
+      <main class="container">
+        <header>
+          <p class="breadcrumb"><a href="../index.html">首頁</a> / 資料探勘 (Data Mining)</p>
+          <h1 class="page-title">資料探勘 DM05–DM06（CH6、CH8）</h1>
+          <p class="page-meta"><span class="badge badge-tag">資料探勘 Data Mining</span> <span class="badge badge-tag">DM05</span> <span class="badge badge-tag">DM06</span></p>
+        </header>
+
+        <div class="search-box">
+          <label for="search-input" class="page-meta">搜尋本頁名詞</label>
+          <input class="search-input" id="search-input" type="search" placeholder="輸入關鍵字" autocomplete="off">
+          <p class="search-status" id="search-status" aria-live="polite"></p>
+        </div>
+
+        <section class="note-section" id="dm05" data-search-group>
+          <h2 class="section-title">DM05 (CH6)</h2>
+          <div class="card-stack">
+          <article class="term-card" data-searchable>
+            <header class="term-head">
+              <span class="term-no">01</span>
+              <h3 class="term-title">Frequent Pattern</h3>
+            </header>
+            <div class="def def-zh"><span class="def-label">中文白話解釋</span><p>在 Data set 中頻繁出現的一組模式</p></div>
+          </article>
+          <article class="term-card" data-searchable>
+            <header class="term-head">
+              <span class="term-no">02</span>
+              <h3 class="term-title">Frequent Itemsets</h3>
+            </header>
+            <div class="def def-zh"><span class="def-label">中文白話解釋</span><p>偏向是「物品」的集合</p></div>
+          </article>
+          <article class="term-card" data-searchable>
+            <header class="term-head">
+              <span class="term-no">03</span>
+              <h3 class="term-title">Support</h3>
+            </header>
+            <div class="def def-zh"><span class="def-label">中文白話解釋</span><p>用來找到 Association Rule 的判斷值，例如：總交易筆數同時包含 A 和 B 兩個項目的比例</p></div>
+          </article>
+          <article class="term-card" data-searchable>
+            <header class="term-head">
+              <span class="term-no">04</span>
+              <h3 class="term-title">Confidence</h3>
+            </header>
+            <div class="def def-zh"><span class="def-label">中文白話解釋</span><p>在一個項目出現的情況中，另外一個項目出現的機率</p></div>
+          </article>
+          <article class="term-card" data-searchable>
+            <header class="term-head">
+              <span class="term-no">05</span>
+              <h3 class="term-title">Association Rules</h3>
+            </header>
+            <div class="def def-zh"><span class="def-label">中文白話解釋</span><p>商品間的條件推理關係。例如：當買一個物品時，就會買另外一個商品</p></div>
+          </article>
+          <article class="term-card" data-searchable>
+            <header class="term-head">
+              <span class="term-no">06</span>
+              <h3 class="term-title">Apriori Property</h3>
+            </header>
+            <div class="def def-zh"><span class="def-label">中文白話解釋</span><p>一個集合是 Frequent，它的所有子集合都會是 Frequent</p></div>
+          </article>
+          </div>
+        </section>
+        <section class="note-section" id="dm06" data-search-group>
+          <h2 class="section-title">DM06 (CH8)</h2>
+          <div class="card-stack">
+          <article class="term-card" data-searchable>
+            <header class="term-head">
+              <span class="term-no">01</span>
+              <h3 class="term-title">Supervised Learning (Classification)</h3>
+              <span class="term-zh">監督式學習</span>
+            </header>
+            <div class="def def-zh"><span class="def-label">中文白話解釋</span><p>訓練資料皆帶有標籤，指出其所屬的類別。新資料集會根據 training set 進行分類。</p></div>
+          </article>
+          <article class="term-card" data-searchable>
+            <header class="term-head">
+              <span class="term-no">02</span>
+              <h3 class="term-title">Unsupervised Learning (Clustering)</h3>
+              <span class="term-zh">非監督式學習</span>
+            </header>
+            <div class="def def-zh"><span class="def-label">中文白話解釋</span><p>訓練資料類別標籤皆是未知。給定一組測量值或觀察值，目標是找出資料中是否存在不同的類別或群集。</p></div>
+          </article>
+          <article class="term-card" data-searchable>
+            <header class="term-head">
+              <span class="term-no">03</span>
+              <h3 class="term-title">Semi-supervised Learning</h3>
+              <span class="term-zh">半監督式學習</span>
+            </header>
+            <div class="def def-zh"><span class="def-label">中文白話解釋</span><p>利用有標籤與未標記的資料來建立分類器</p></div>
+          </article>
+          <article class="term-card" data-searchable>
+            <header class="term-head">
+              <span class="term-no">04</span>
+              <h3 class="term-title">Evaluating Classification Methods</h3>
+              <span class="term-zh">評價一個分類模型的面向</span>
+            </header>
+            <div class="term-after"><ul class="note-list"><li><strong>Accuracy 準確度</strong><span class="li-line">分類／預測的準確度</span></li><li><strong>Speed 速度</strong><span class="li-line">訓練需要的時間、分類的效率</span></li><li><strong>Robustness 韌性</strong><span class="li-line">處理雜訊和缺值的能力</span></li><li><strong>Scalability 可擴充性</strong><span class="li-line">演算法一次可以處理多少分析，處理的資料量越多，Scalability 越高</span></li><li><strong>Interpretability 可解釋性</strong></li></ul></div>
+          </article>
+          </div>
+        </section>
+
+        <p class="no-results" id="no-results" hidden>沒有符合的名詞，請試試其他關鍵字。</p>
+      </main>
+    </div>
+  </div>
+  <script src="../assets/app.js"></script>
+</body>
+</html>
