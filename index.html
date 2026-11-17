@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Study Notes 筆記整理庫</title>
+  <meta name="description" content="個人學習筆記整理網站，依科目與章節整理重點。">
+  <link rel="stylesheet" href="./assets/style.css">
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar" id="sidebar" aria-label="全站導覽">
+      <a class="brand" href="./index.html">Study Notes 筆記整理庫</a>
+      <nav>
+        <!-- NAV:START（所有頁面此區塊內容必須一致，僅路徑前綴不同） -->
+        <div class="nav-group">
+          <p class="nav-subject">資料探勘 (Data Mining)</p>
+          <ul class="nav-list">
+            <li><a href="./notes/dm-ch1-ch2.html">期中重點 CH1–CH2</a></li>
+            <li><a href="./notes/dm-ch3.html">CH3 資料前處理</a></li>
+            <li><a href="./notes/dm-ch6-ch8.html">CH6、CH8 關聯規則與學習</a></li>
+          </ul>
+        </div>
+        <!-- NAV:END -->
+      </nav>
+    </aside>
+    <div class="nav-overlay" id="nav-overlay"></div>
+
+    <div class="main">
+      <div class="topbar">
+        <button class="menu-toggle" id="menu-toggle" type="button" aria-label="開啟導覽選單" aria-controls="sidebar" aria-expanded="false"><span></span><span></span><span></span></button>
+        <span class="topbar-title">Study Notes</span>
+      </div>
+
+      <main class="container">
+        <header class="hero">
+          <h1 class="page-title">Study Notes 筆記整理庫</h1>
+          <p>依科目與章節整理的學習筆記。名詞皆附英文原文定義與中文白話解釋。</p>
+        </header>
+
+        <div class="search-box">
+          <label for="search-input" class="page-meta">搜尋筆記</label>
+          <input class="search-input" id="search-input" type="search" placeholder="輸入關鍵字，例如：資料探勘、Big Data" autocomplete="off">
+          <p class="search-status" id="search-status" aria-live="polite"></p>
+        </div>
+
+        <!-- SUBJECTS:START（新增科目時複製一個 subject-block；新增筆記時於對應科目加一張 note-card） -->
+        <section class="subject-block" data-search-group>
+          <h2 class="section-title">資料探勘 (Data Mining)</h2>
+          <div class="card-grid">
+            <a class="note-card" href="./notes/dm-ch1-ch2.html" data-searchable>
+              <span class="note-card-title">資料探勘期中重點整理</span>
+              <p class="note-card-desc">KDD 流程、模式評估標準、資料物件與屬性類型，含問答整理。</p>
+              <span class="note-card-tags"><span class="badge badge-tag">CH1</span><span class="badge badge-tag">CH2</span></span>
+            </a>
+            <a class="note-card" href="./notes/dm-ch3.html" data-searchable>
+              <span class="note-card-title">CH3 資料前處理</span>
+              <p class="note-card-desc">資料清理、整合、縮減與正規化，含雜訊與缺失值處理方法。</p>
+              <span class="note-card-tags"><span class="badge badge-tag">CH3</span></span>
+            </a>
+            <a class="note-card" href="./notes/dm-ch6-ch8.html" data-searchable>
+              <span class="note-card-title">CH6、CH8 關聯規則與學習</span>
+              <p class="note-card-desc">頻繁模式、support / confidence，以及監督式與非監督式學習。</p>
+              <span class="note-card-tags"><span class="badge badge-tag">CH6</span><span class="badge badge-tag">CH8</span></span>
+            </a>
+          </div>
+        </section>
+        <!-- SUBJECTS:END -->
+
+        <p class="no-results" id="no-results" hidden>沒有符合的筆記，請試試其他關鍵字。</p>
+      </main>
+    </div>
+  </div>
+  <script src="./assets/app.js"></script>
+</body>
+</html>
