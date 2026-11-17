@@ -1,0 +1,151 @@
+/* ==========================================================
+   Study Notes 筆記整理庫 — 全站共用樣式表
+   【禁止修改】:root 內的基礎變數與色票（見 CLAUDE.md）
+   ========================================================== */
+:root {
+  --c-bg: #FFFFFF;
+  --c-surface: #F8FAFC;
+  --c-text: #1E293B;
+  --c-accent: #2563EB;
+  --c-border: #E2E8F0;
+  /* 衍生輔助色（僅由上列色票推得，不新增主色） */
+  --c-muted: #64748B;
+  --c-accent-soft: #EFF6FF;
+  --c-accent-line: #BFDBFE;
+  --font-sans: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Consolas, monospace;
+  --lh: 1.7;
+  --read-width: 800px;
+  --nav-width: 280px;
+  --radius: 8px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--c-bg); color: var(--c-text);
+  font-family: var(--font-sans); font-size: 1rem; line-height: var(--lh);
+}
+a { color: var(--c-accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+:focus-visible { outline: 2px solid var(--c-accent); outline-offset: 2px; border-radius: 4px; }
+h1, h2, h3 { line-height: 1.35; margin: 0; }
+
+/* ---------- 版面：左側導覽 + 右側主內容 ---------- */
+.layout { display: flex; min-height: 100vh; }
+.sidebar {
+  position: fixed; inset: 0 auto 0 0; width: var(--nav-width);
+  background: var(--c-surface); border-right: 1px solid var(--c-border);
+  padding: 1.5rem 1rem; overflow-y: auto; z-index: 30;
+}
+.brand { display: block; font-size: 1.125rem; font-weight: 700; color: var(--c-text); padding: 0 .5rem 1rem; border-bottom: 1px solid var(--c-border); margin-bottom: 1rem; }
+.brand:hover { text-decoration: none; color: var(--c-accent); }
+.nav-group { margin-bottom: 1.25rem; }
+.nav-subject { font-size: .875rem; font-weight: 700; color: var(--c-muted); margin: 0 0 .25rem; padding: 0 .5rem; }
+.nav-list { list-style: none; margin: 0; padding: 0; }
+.nav-list a {
+  display: block; padding: .4rem .5rem .4rem .75rem; border-left: 3px solid transparent;
+  color: var(--c-text); font-size: .9375rem; border-radius: 0 6px 6px 0;
+}
+.nav-list a:hover { background: var(--c-accent-soft); text-decoration: none; }
+.nav-list a.is-active { border-left-color: var(--c-accent); background: var(--c-accent-soft); color: var(--c-accent); font-weight: 600; }
+
+.main { margin-left: var(--nav-width); flex: 1; min-width: 0; padding: 2.5rem 1.5rem 4rem; }
+.container { max-width: var(--read-width); margin: 0 auto; }
+
+/* ---------- 手機版頂列與漢堡選單 ---------- */
+.topbar { display: none; }
+.menu-toggle {
+  background: none; border: 1px solid var(--c-border); border-radius: 6px;
+  width: 2.5rem; height: 2.5rem; cursor: pointer; color: var(--c-text);
+  display: inline-flex; flex-direction: column; justify-content: center; align-items: center; gap: 5px;
+}
+.menu-toggle span { display: block; width: 18px; height: 2px; background: currentColor; }
+.nav-overlay { display: none; }
+
+/* ---------- 頁首、搜尋 ---------- */
+.breadcrumb { font-size: .875rem; color: var(--c-muted); margin: 0 0 .5rem; }
+.page-title { font-size: 2rem; font-weight: 700; }
+.page-meta { color: var(--c-muted); font-size: .9375rem; margin: .5rem 0 0; }
+.search-box { margin: 1.5rem 0 2rem; }
+.search-input {
+  width: 100%; padding: .7rem 1rem; font: inherit; color: var(--c-text);
+  background: var(--c-bg); border: 1px solid var(--c-border); border-radius: var(--radius);
+}
+.search-input:focus { outline: 2px solid var(--c-accent); outline-offset: 0; border-color: var(--c-accent); }
+.search-status { font-size: .875rem; color: var(--c-muted); margin: .5rem 0 0; min-height: 1.4em; }
+.no-results { padding: 2rem; text-align: center; color: var(--c-muted); border: 1px dashed var(--c-border); border-radius: var(--radius); }
+
+/* ---------- 內容區塊 ---------- */
+.note-section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.5rem; padding-bottom: .5rem; margin-bottom: 1.25rem; border-bottom: 2px solid var(--c-accent); }
+.card-stack { display: grid; gap: 1rem; }
+
+/* ---------- 名詞定義卡片 Term Card ---------- */
+.term-card { background: var(--c-surface); border: 1px solid var(--c-border); border-radius: var(--radius); padding: 1.25rem 1.5rem; }
+.term-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: .5rem .75rem; margin-bottom: .75rem; }
+.term-no { font-family: var(--font-mono); font-size: .875rem; color: var(--c-muted); }
+.term-title { font-size: 1.1875rem; font-weight: 700; }
+.term-zh { font-size: 1rem; color: var(--c-muted); font-weight: 500; }
+.def { margin: 0 0 .75rem; padding-left: .875rem; border-left: 3px solid var(--c-border); }
+.def:last-child { margin-bottom: 0; }
+.def p { margin: 0; }
+.def-label { display: block; font-size: .8125rem; font-weight: 600; color: var(--c-muted); margin-bottom: .125rem; }
+.def-en { border-left-color: var(--c-accent-line); }
+.def-zh { border-left-color: var(--c-accent); }
+.def-zh .def-label { color: var(--c-accent); }
+.example { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; margin: .75rem 0 0; font-size: .9375rem; }
+
+/* ---------- 標籤 Badge ---------- */
+.badge {
+  display: inline-block; padding: .125rem .625rem; border-radius: 999px; font-size: .8125rem;
+  line-height: 1.5; background: var(--c-accent-soft); color: var(--c-accent); border: 1px solid var(--c-accent-line);
+}
+.badge-example { background: var(--c-bg); color: var(--c-text); border-color: var(--c-border); }
+.badge-tag { background: var(--c-bg); color: var(--c-muted); border-color: var(--c-border); }
+
+/* ---------- 首頁目錄卡片 ---------- */
+.hero { margin-bottom: 2rem; }
+.hero p { color: var(--c-muted); margin: .5rem 0 0; }
+.subject-block { margin-bottom: 2.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1rem; }
+.note-card {
+  display: flex; flex-direction: column; gap: .5rem; padding: 1.25rem; color: var(--c-text);
+  background: var(--c-surface); border: 1px solid var(--c-border); border-radius: var(--radius);
+}
+.note-card:hover { border-color: var(--c-accent); text-decoration: none; }
+.note-card-title { font-size: 1.0625rem; font-weight: 700; }
+.note-card-desc { font-size: .9375rem; color: var(--c-muted); margin: 0; }
+.note-card-tags { display: flex; flex-wrap: wrap; gap: .375rem; margin-top: auto; }
+
+/* ---------- RWD：手機版 ---------- */
+@media (max-width: 900px) {
+  .topbar {
+    display: flex; align-items: center; gap: .75rem; position: sticky; top: 0; z-index: 20;
+    padding: .625rem 1rem; background: var(--c-bg); border-bottom: 1px solid var(--c-border);
+  }
+  .topbar-title { font-weight: 700; }
+  .sidebar { transform: translateX(-100%); transition: transform .2s ease; width: min(var(--nav-width), 85vw); }
+  .nav-open .sidebar { transform: translateX(0); }
+  .nav-open .nav-overlay { display: block; position: fixed; inset: 0; background: rgba(30, 41, 59, .4); z-index: 25; }
+  .main { margin-left: 0; padding: 1.5rem 1rem 3rem; }
+  .page-title { font-size: 1.625rem; }
+  .term-card { padding: 1rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .sidebar { transition: none; }
+}
+@media print {
+  .sidebar, .topbar, .search-box { display: none; }
+  .main { margin: 0; padding: 0; }
+}
+
+/* ---------- 追加：清單型內容（問答、步驟、分類）— 僅使用既有變數 ---------- */
+.note-list { margin: .75rem 0 0; padding-left: 1.25rem; }
+.note-list li { margin: .5rem 0; }
+.note-list .note-list { margin-top: .25rem; }
+.li-line { display: block; }
+.li-line[lang="en"] { color: var(--c-muted); font-size: .9375rem; }
+.term-after { margin-top: .75rem; }
